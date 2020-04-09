@@ -1,27 +1,4 @@
-<!--div style="margin: 20% auto; width: 30%;">
-  <div class="row">
-    <div class="col-lg-6">
-      Usuario
-    </div>
-    <div class="col-lg-6">
-      <input type="text"  [(ngModel)]="usuario">
-    </div>
-  </div>
-  <div class="row" style="margin-top: 5px">
-    <div class="col-lg-6">
-      Clave
-    </div>
-    <div class="col-lg-6">
-      <input type="password" [(ngModel)]="clave">
-    </div>
-  </div>
-  <div class="row" style="text-align: center; margin-top: 10px">
-    <div class="col-lg-12">
-      <button (click)="Entrar()" class="btn btn-info btn-lg" >Entrar</button>
-    </div>
-  </div>
-</div-->
- <div class="container" >
+<!--   <div class="container" >
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
       <div class="imgcontainer">
@@ -54,4 +31,37 @@
      
     </form>
   </div>
-</div>
+</div> 
+ -->
+<body>
+  <div class="left"></div>
+  <div class="middle">
+    <div  class="atras">
+      <img src="../../../assets/icons/back-white-60x60.png" routerLink="/"/>
+    </div>
+    <form [formGroup]="myForm" (ngSubmit)=saveData()>
+      <div class="avatar">
+        <img class="avatar" src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/128/Retro-Mushroom-Super-3-icon.png"/>
+      </div>
+      <div class="usuario"> 
+          <label class="usuario " for="usuario">Usuario </label>
+          <input class="usuario"  [(ngModel)]="usuario" type="text" id="usuario">
+      </div>
+      <div class="pass">
+        <label class="pass" for="pass">Contrasena</label>
+        <input class="pass" [(ngModel)]="clave" type="password" id="pass">
+      </div>
+      <div class="submit">
+        <button class="submit " type="submit">Ingresar</button>
+        <button class="registrarse" routerLink="/Registro" type="button">Registrar</button>
+      </div>
+      <div class="recordar">
+        <input class="recordar" type="checkbox" id="recordar">
+        <label class="recordar" for="recordar">Recordar mis datos</label>
+      </div>      
+    </form>
+
+  </div>
+  <div class="right"></div>
+  <div class="bottom"></div>
+</body> 

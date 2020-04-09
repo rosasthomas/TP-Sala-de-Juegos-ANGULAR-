@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { timer } from "rxjs";
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,15 +19,23 @@ export class LoginComponent implements OnInit {
   progresoMensaje="esperando..."; 
   logeando=true;
   ProgresoDeAncho:string;
+  myForm:FormGroup
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    public fb: FormBuilder) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
 
+
+      this.myForm = this.fb.group({
+        name: ['', [Validators.required]],
+        email: ['', [Validators.required]],
+        password: ['', [Validators.required]],
+      });
   }
 
   ngOnInit() {
@@ -36,13 +46,18 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/Principal']);
     }
   }
+
+  saveData(){
+    console.log(this.myForm.value);
+  }
+
   MoverBarraDeProgreso() {
     
     this.logeando=false;
     this.clase="progress-bar progress-bar-danger progress-bar-striped active";
     this.progresoMensaje="NSA spy..."; 
-    let timer = TimerObservable.create(200, 50);
-    this.subscription = timer.subscribe(t => {
+    let timers = timer(200, 50);
+    this.subscription = timers.subscribe(t => {
       console.log("inicio");
       this.progreso=this.progreso+1;
       this.ProgresoDeAncho=this.progreso+20+"%";

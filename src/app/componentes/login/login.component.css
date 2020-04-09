@@ -1,4 +1,4 @@
-
+/* 
 form {
     border: 10px solid #f1f1f1;
     padding: 10px;
@@ -57,7 +57,7 @@ span.psw {
     padding-top: 16px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
+/* Change styles for span and cancel button on extra small screens 
 @media screen and (max-width: 300px) {
     span.psw {
        display: block;
@@ -66,4 +66,198 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+} */
+@media only screen and (max-width: 1116px) {
+    div.left{
+        width: 18vw;
+        height: 80vh;
+    }
+    div.middle{
+        width: 63vw;
+        height: 80vh;
+    }
+    div.right{
+        width: 18vw;
+        height: 80vh;
+    }
+    
+    div.bottom{
+        width: 100vw;
+        height: 20vh;
+    }
 }
+
+@media only screen and (min-width: 1117px) {
+    div.left{
+        width: 21vw;
+        height: 80vh;
+    }
+    div.middle{
+        width: 58vw;
+        height: 80vh;
+    }
+    div.right{
+        width: 21vw;
+        height: 80vh;
+    }
+    
+    div.bottom{
+        width: 100vw;
+        height: 20vh;
+    }
+}
+
+@media only screen and (max-width: 849px) {
+    div.left{
+        width: 9vw; 
+        height: 80vh;
+    } 
+    div.middle{
+        width: 82vw;
+        height: 80vh;
+    }
+    div.right{
+        width: 9vw;
+        height: 80vh;
+    }
+    
+    div.bottom{
+        width: 100vw;
+        height: 20vh;
+    }
+}
+
+@media only screen and (min-height: 696px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        padding-top: 2%;
+    }
+}
+
+@media only screen and (min-width: 1321px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        top: 3%;
+    }
+}
+
+@media only screen and (max-width: 1320px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        top: 3%;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        top: 5%;
+    }
+}
+
+@media only screen and (max-width: 1028px) {
+    div.atras{
+        position: absolute;
+        left: 17%;
+        top: 6%;
+    }
+}
+
+
+@font-face{
+    font-family: "8Bits";
+    src: url("../../../assets/fonts/8-BITWONDER.TTF");
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{    
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../../../docs/assets/imagenes/fondo.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-attachment: fixed;
+    background-color: rgb(66, 66, 66);
+}
+
+div.right, div.left, div.middle, div.bottom{
+    float: left;
+    
+}
+
+form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: "8Bits";
+    color: white;
+    font-size: 150%;
+    text-align: center;
+}
+
+div.usuario, div.pass, div.submit, div.recordar{
+    margin-bottom: 3%;
+}
+
+div.avatar{
+    width: 100%;
+    height: 30%;
+}
+
+img.avatar{
+    position: relative;
+    top: 20%;  
+}
+
+input.recordar:hover{
+    cursor: pointer;
+}
+
+label.usuario, label.pass{
+    display: block;
+    margin: 2%;
+    padding: 0;
+
+}
+
+label.recordar{
+    font-size: 60%;
+}
+
+input.recordar{
+    margin-right: 1%;
+}
+
+button.registrarse{
+    margin-left: 3%;
+}
+
+input.usuario, input.pass{
+    text-align: center;
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+}
+
+button{
+    margin-top: 3%;
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+    font-size: 70%;
+}
+
+div.atras{
+    background-color: green;
+}
+
