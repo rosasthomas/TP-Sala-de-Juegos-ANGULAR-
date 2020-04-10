@@ -126,6 +126,7 @@ span.ingreso, span.registro{
     border-radius: 5%;
     background: rgba(0, 255, 38, 0.639);
     margin: 2px;
+    outline: none;
 }
 .banner .first {
     background:rgba(253, 53, 53, 0.87)  url("../../../assets/icons/gameboy-white-100x100.png") center center no-repeat; 

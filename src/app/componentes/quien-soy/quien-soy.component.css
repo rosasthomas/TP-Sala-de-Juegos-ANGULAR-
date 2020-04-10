@@ -68,7 +68,7 @@
 body{    
     height: 100vh;
     width: 100vw;
-    background-image: url("../../../../docs/assets/imagenes/fondo.png");
+    background-image: url("../../../assets/imagenes/fondo.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;    
