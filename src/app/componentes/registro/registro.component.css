@@ -1,86 +1,217 @@
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
+@media only screen and (max-width: 1116px) {
+    div.left{
+        width: 18vw;
+        height: 80vh;
+    }
+    div.middle{
+        width: 63vw;
+        height: 80vh;
+    }
+    div.right{
+        width: 18vw;
+        height: 80vh;
+    }
+    
+    div.bottom{
+        width: 100vw;
+        height: 20vh;
+    }
+}
+
+@media only screen and (min-width: 1117px) {
+    div.left{
+        width: 21vw;
+        height: 80vh;
+    }
+    div.middle{
+        width: 58vw;
+        height: 80vh;
+    }
+    div.right{
+        width: 21vw;
+        height: 80vh;
+    }
+    
+    div.bottom{
+        width: 100vw;
+        height: 20vh;
+    }
+}
+
+@media only screen and (max-width: 849px) {
+    div.left{
+        width: 9vw; 
+        height: 80vh;
+    } 
+    div.middle{
+        width: 82vw;
+        height: 80vh;
+    }
+    div.right{
+        width: 9vw;
+        height: 80vh;
+    }
+    
+    div.bottom{
+        width: 100vw;
+        height: 20vh;
+    }
+}
+
+@media only screen and (min-height: 696px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        padding-top: 2%;
+    }
+    form{
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (min-width: 1321px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        top: 3%;
+    }
+}
+
+@media only screen and (max-width: 1320px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        top: 3%;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    div.atras{
+        position: absolute;
+        left: 22%;
+        top: 5%;
+    }
+}
+
+@media only screen and (max-width: 1028px) {
+    div.atras{
+        position: absolute;
+        left: 17%;
+        top: 6%;
+    }
+}
+
+
+@font-face{
+    font-family: "8Bits";
+    src: url("../../../assets/fonts/8-BITWONDER.TTF");
+}
+
+*{
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
+body{    
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../../assets/imagenes/fondo.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-attachment: fixed;
+    background-color: rgb(66, 66, 66);
+}
+
+div.right, div.left, div.middle, div.bottom{
+    float: left;
+    
+}
+
+form{
+    position: relative;
     width: 100%;
+    height: 100%;
+    font-family: "8Bits";
+    color: white;
+    font-size: 150%;
+    text-align: center;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
+div.usuario, div.pass, div.submit, div.recordar{
+    margin-bottom: 3%;
 }
 
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn,.signupbtn {float:left;width:50%}
-
-/* Add padding to container elements */
-.container {
-    padding: 16px;
+div.avatar{
+    width: 100%;    
+    height: 25%;
+    z-index: -1;
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+img.avatar{
+    position: relative;
+    top: 20%;  
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 98%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-    position: absolute;
-    right: 35px;
-    top: 15px;
-    color: #000;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: red;
+input.recordar:hover{
     cursor: pointer;
 }
 
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+label.usuario, label.pass{
+    display: block;
+    margin: 2%;
+    padding: 0;
+
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-    .cancelbtn, .signupbtn {
-       width: 100%;
-    }
+label.recordar{
+    font-size: 60%;
+}
+
+input.recordar{
+    margin-right: 1%;
+}
+
+button.registrarse{
+    margin-left: 3%;
+}
+
+input.usuario, input.pass{
+    text-align: center;
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+    height: 5%;
+}
+
+input:hover{
+    transform: scale(1.1);
+    border: dashed 5px red;
+}
+
+button{
+    margin-top: 3%;
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+    font-size: 70%;
+}
+
+button:hover{
+    transform: scale(1.1);
+    border: dashed 5px blue;
+}
+
+div.atras{
+    z-index: 3;
+    cursor: pointer;
+}
+
+div.recordar{
+    cursor: pointer;
+}
+
+div.recordar:hover, div.atras:hover{
+    transform: scale(1.1);
 }

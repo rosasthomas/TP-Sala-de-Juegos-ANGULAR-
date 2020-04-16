@@ -1,4 +1,4 @@
-<ul class="nav nav-pills nav-justified">
+<!-- <ul class="nav nav-pills nav-justified">
   <li class="active"><a routerLink="/Principal">Ir a inicio</a></li>
   <li><a (click)="TraerTodos()">Todos los jugadores</a></li>
   <li><a (click)="TraerGanadores()">Los ganadores</a></li>
@@ -26,4 +26,46 @@
     </tr>
    
   </tbody>
-</table>
+</table> -->
+
+<body>
+  <div class="left"></div>
+  <div class="middle">
+    <div class="cabecera">
+      <div class="back">
+        <img class="back" src="../../../assets/icons/back-white-60x60.png" routerLink="/">
+      </div>
+      <div class="botones">
+        <ul class="botones">
+          <li class="botoncitos"><button type="button" (click)="TraerTodos()">Todos los jugadores</button></li>
+          <li class="botoncitos"><button type="button" (click)="TraerGanadores()">Los ganadores</button></li>
+          <li class="botoncitos"><button type="button" (click)="TraerPerdedores()">Los perdedores</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tabla">
+      <table class="tablita">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Cuit</th>
+            <th>Sexo</th>
+            <th>Gano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jugador of listado" >
+            <td>{{jugador.usuario}} </td>
+            <td>{{jugador.cuit}} </td> 
+            <td>{{jugador.sexo | sexo| uppercase}} </td> 
+            <td>{{jugador.gano}} </td> 
+            
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="right"></div>
+  <div class="bottom"></div>
+</body>

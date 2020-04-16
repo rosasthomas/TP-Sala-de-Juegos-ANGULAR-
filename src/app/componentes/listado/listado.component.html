@@ -3,12 +3,33 @@
 <input type="button" (click)="llamaServicePromesa()" class="btn btn-info" value="Pulsame Promesa" --> 
 
 <!-- Centered Pills -->
-<ul class="nav nav-pills nav-justified">
+<!-- <ul class="nav nav-pills nav-justified">
     <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
     <li><a (click)="llamaService()">Servicio</a></li>
     <li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
     <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
   </ul>
   
-<app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados>
+<app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados> -->
 
+<body>
+  <div class="left"></div>
+  <div class="middle">
+    <div class="cabecera">
+      <div class="back">
+        <img class="back" src="../../../assets/icons/back-white-60x60.png" routerLink="/">
+      </div>
+      <div class="titulo">
+        <p>Listado de Resultados</p>
+      </div>
+      <div class="botones">
+      <input type="button" (click)="llamaService()" value="Pulsame" > 
+      <input type="button" (click)="llamaServicePromesa()" value="Pulsame Promesa"> 
+    </div>
+
+    </div>
+    <app-listado-de-resultados></app-listado-de-resultados>
+  </div>
+  <div class="right"></div>
+  <div class="bottom"></div>
+</body>

@@ -1,3 +1,23 @@
+@media only screen and (min-height: 696px){
+    div.avatar{
+        height: 35%;
+        margin-top: 7%;
+    }
+    div.links{
+        margin-top: 2%;
+    }
+}
+
+@media only screen and (max-height: 695px){
+    div.avatar{
+        height: 39%; 
+        margin-top: 3%;
+    }
+    div.links{
+        margin-top: 2%;
+    }
+}
+
 @media only screen and (max-width: 1116px) {
     div.left{
         width: 18vw;
@@ -15,6 +35,9 @@
     div.bottom{
         width: 100vw;
         height: 20vh;
+    }
+    div.links{
+        margin-top: 2%;
     }
 }
 
@@ -35,6 +58,16 @@
     div.bottom{
         width: 100vw;
         height: 20vh;
+    }
+
+    div.back{
+        margin-top: 10%;
+    }
+    div.links{
+        margin-top: 2%;
+    }
+    div.desc{
+        font-size: 100%;
     }
 }
 
@@ -58,6 +91,33 @@
     }
 }
 
+@media only screen and (max-width: 1290px) {
+    div.back{
+        margin-top: 7%;
+    }
+    div.links{
+        margin-top: 2%;
+    }
+    div.desc{
+        font-size: 100%;
+    }
+}
+
+@media only screen and (max-width: 1231px) {
+    div.back{
+        margin-top: 10%;
+    }
+    div.avatar{
+        margin-top: 8%;
+        height: 25%;
+    }
+    div.links{
+        margin-top: 5%;
+    }
+    div.desc{
+        font-size: 90%;
+    }
+}
 
 *{
     box-sizing: border-box;
@@ -80,15 +140,9 @@ div.middle, div.bottom, div.right, div.left{
     float: left;    
 }
 
-div.middle{
-    
-}
-
 div.avatar{
-    margin-top: 3%;
     margin-left: 5%;
     width: 27%;
-    height: 40%; 
 }
 
 img.avatar{
@@ -125,7 +179,6 @@ div.links{
 
 div.back{
     position: relative;
-    margin-top: 10%;
     left: 2%;
 }
 

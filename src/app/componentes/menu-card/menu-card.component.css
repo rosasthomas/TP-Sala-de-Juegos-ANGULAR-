@@ -1,57 +1,58 @@
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-    max-width: 300px;
-   height: 100%;
-    margin: 10px;
-    padding-bottom: 10px;
-    float: left;
-  background-color: #DEF3A6;
-    text-align: center;
+div.juegos{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Add rounded corners to the top left and the top right corner of the image */
-img {
-    border-radius: 5px 5px 0 0;
-    width: 200px;
-    height: 200px;
-}/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
+div.contenedor{
+    height: 45%;
+    width: 95%;
+    display: flex;
+    flex-direction: row; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 2%;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "8Bits";
+    color: black;
 }
 
+div.primero{
+  width: 30%;
+  height: 90%;
+  margin-right: 3%;
+  border-radius: 5%;
+  text-align: center;
+  background:rgba(253, 53, 53, 0.87); 
+}
 
-.button{
-    margin-left: 1px;
-    display: inline-block;
-    width: 90%;
-    padding: 5px 15px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+label{
+  margin-top: 5%;
+}
 
-    border: none;
-    outline: 0;
- 
-    padding: 8px;
-    color: white;
-   /* background-color: #000;*/
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .button:hover {background-color: #3e8e41}
-  
-  .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
+div.segundo{
+  width: 30%;
+  height: 90%;
+  background: rgba(87, 54, 255, 0.87); 
+  text-align: center;
+  margin-right: 3%;
+  border-radius: 5%;
+}
+div.tercero{
+  width: 30%;
+  height: 90%;
+  border-radius: 5%;
+  text-align: center;
+  background:rgba(253, 53, 53, 0.87); 
+}
+
+div.primero:hover, div.segundo:hover, div.tercero:hover{
+  transform: scale(1.15);
+  cursor: pointer;
+}
+label:hover{
+  cursor: pointer;
+}
