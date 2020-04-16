@@ -104,7 +104,6 @@ img.back:hover{
 div.titulo{
     width: 80%;
     height: 100%;
-    background-color: red;
     display: flex;
     align-items: center;
     justify-content:center;
@@ -117,11 +116,10 @@ p{
 div.botones{
     width: 20%;
     height: 100%;
-    background-color: lime;
 }
 
 input{
-    margin-top: 5%;
+    margin-top: 5%ng serve -o;
     color: white;
     outline: none;
     background-color:transparent;
