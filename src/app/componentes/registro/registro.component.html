@@ -52,9 +52,10 @@
       <div  class="atras" >
         <img src="../../../assets/icons/back-white-60x60.png" routerLink="/"/>
       </div>
-      <form>
+      <form (ngSubmit)="agregar()" >
         <div class="avatar">
-          <img class="avatar" src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/128/Retro-Mushroom-1UP-3-icon.png"/>
+          <div hidden id="error" class="error">Las contrasenas no coinciden</div>
+          <img id="avatar" class="avatar" src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/128/Retro-Mushroom-1UP-3-icon.png"/>
         </div>
         <div class="usuario"> 
             <label class="usuario " for="usuario">Usuario </label>
@@ -62,16 +63,15 @@
         </div>
         <div class="pass">
           <label class="pass" for="pass">Contrasena</label>
-          <input class="pass" type="password" id="pass">
+          <input class="pass" type="password" id="passw">
         </div>
         <div class="pass">
           <label class="pass" for="pass">Repita la contrasena</label>
-          <input class="pass"  type="password" id="pass">
+          <input class="pass"  type="password" id="secPass">
         </div>
 
         <div class="submit">
-          <button class="submit " type="submit">Ingresar</button>
-          <button class="registrarse" routerLink="/Registro" type="button">Registrar</button>
+          <button class="submit " type="submit">Registrar</button>
         </div>
       </form>
   

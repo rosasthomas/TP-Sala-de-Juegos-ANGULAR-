@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import {Subscription} from "rxjs";
 import { timer } from "rxjs";
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-login',
@@ -20,16 +22,22 @@ export class LoginComponent implements OnInit {
   logeando=true;
   ProgresoDeAncho:string;
   myForm:FormGroup
+  usuarios: Observable<any[]>;
+  lista:any[]
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
   constructor(
+    firestore: AngularFirestore,
     private route: ActivatedRoute,
     private router: Router,
     public fb: FormBuilder) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
 
+      this.usuarios = firestore.collection('usuarios').valueChanges();
+      this.usuarios.subscribe(usuarios => this.lista = usuarios, error => console.log(error))
+  
 
       this.myForm = this.fb.group({
         name: ['', [Validators.required]],
@@ -42,13 +50,31 @@ export class LoginComponent implements OnInit {
   }
 
   Entrar() {
-    if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
+    let flag = false;
+    for (let usuario of this.lista){
+      if(usuario.nombre == this.usuario && usuario.clave == this.clave){
+        flag=true;
+        this.router.navigate(['/Principal'])
+        break;
+      }
+    }
+    if (!flag) {  
+      this.logeando=true;
+      this.progresoMensaje="esperando..."; 
+
+      this.progreso=0;
+      this.ProgresoDeAncho="0%";
+        $("#avatar").attr("hidden", true);
+        $("#errorUser").removeAttr("hidden");
     }
   }
 
   saveData(){
-    console.log(this.myForm.value);
+    $("#avatar").removeAttr("hidden");
+    $("#errorUser").attr("hidden", true);
+    this.usuario = this.myForm.value.email;
+    this.clave = this.myForm.value.password;
+    this.MoverBarraDeProgreso()
   }
 
   MoverBarraDeProgreso() {

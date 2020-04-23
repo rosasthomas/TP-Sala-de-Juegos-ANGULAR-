@@ -28,6 +28,15 @@ export class MenuComponent implements OnInit {
       case 'AgilidadaMasListado':
           this.router.navigate(['/Juegos/AgilidadaMasListado']);
         break;
+      case 'card':
+        let ruta = this.router.routerState.snapshot.url;
+        if (ruta == '/Juegos') {
+          this.router.navigate(['/'])
+        }
+        else{
+          this.router.navigate(['/Juegos']);
+        }
+        break;
     }
   }
 

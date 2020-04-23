@@ -141,6 +141,18 @@ div.usuario, div.pass, div.submit, div.recordar{
     margin-bottom: 3%;
 }
 
+div.error{
+    border: dashed 5px red;
+    text-align: center;
+    font-size: 80%;
+    position: relative;
+    top: 41%;
+    left: 16%;
+    width: 68%;
+    height: 32%;
+    background-color: #f52c2cb5;
+}
+
 div.avatar{
     width: 100%;    
     height: 25%;

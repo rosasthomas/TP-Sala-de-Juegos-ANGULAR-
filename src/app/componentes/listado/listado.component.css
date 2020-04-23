@@ -92,7 +92,7 @@ div.back{
     width: 10%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
 }
 
@@ -114,6 +114,10 @@ p{
 }
 
 div.botones{
+    display: flex;
+    flex-flow: column ;
+    justify-content: space-around;
+    align-items: center;
     width: 20%;
     height: 100%;
 }

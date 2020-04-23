@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!--app-menu></app-menu-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div style="text-align:center">
   <h1>
     {{nuevoJuego.nombre}}!
@@ -23,4 +23,26 @@
 
 
 </form>
-<div id="snackbar">{{Mensajes}}</div>
+<div id="snackbar">{{Mensajes}}</div> -->
+
+<div class="container">
+  <div class="titulo">
+  <span class="titulo">Adivina el Numero</span>
+</div>
+<div>
+  <form name="juego">
+    <div>
+    <label>Ingrese un numero:  </label>  
+    <input [(ngModel)]="nuevoJuego.numeroIngresado" name="numeroIngresado" type="text" class="form-control"/>  
+  </div>
+  <button [hidden]="ocultarVerificar" *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" >Verificar</button>
+  <button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()">Nuevo numero secreto</button>
+  
+  <p *ngIf="nuevoJuego.numeroSecreto!=0" ><i class="fa fa-spinner fa-spin"></i>Esperando que ingrese un numero</p>
+ 
+     <h3 class="gano" [hidden]="!nuevoJuego.gano">Usted adivino el numero</h3>
+     <h3 class="noGano" [hidden]="nuevoJuego.gano">Usted aun no gano </h3>
+     <div id="snackbar">{{Mensajes}}</div>
+ </form>
+</div> 
+</div>

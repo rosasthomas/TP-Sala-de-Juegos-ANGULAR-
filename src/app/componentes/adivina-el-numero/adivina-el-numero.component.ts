@@ -32,7 +32,7 @@ export class AdivinaElNumeroComponent implements OnInit {
     if (this.nuevoJuego.verificar()){
       
       this.enviarJuego.emit(this.nuevoJuego);
-      this.MostarMensaje("Sos un Genio!!!",true);
+      this.MostarMensaje("Sos un Genio",true);
       this.nuevoJuego.numeroSecreto=0;
 
     }else{
@@ -40,29 +40,29 @@ export class AdivinaElNumeroComponent implements OnInit {
       let mensaje:string;
       switch (this.contador) {
         case 1:
-          mensaje="No, intento fallido, animo";
+          mensaje=" - No, intento fallido, animo";
           break;
           case 2:
-          mensaje="No,Te estaras Acercando???";
+          mensaje=" - No, te estaras acercando???";
           break;
           case 3:
-          mensaje="No es, Yo crei que la tercera era la vencida.";
+          mensaje=" - No es, yo crei que la tercera era la vencida.";
           break;
           case 4:
-          mensaje="No era el  "+this.nuevoJuego.numeroIngresado;
+          mensaje=" - No era el  "+this.nuevoJuego.numeroIngresado;
           break;
           case 5:
           mensaje=" intentos y nada.";
           break;
           case 6:
-          mensaje="Afortunado en el amor";
+          mensaje=" - Afortunado en el amor";
           break;
       
         default:
             mensaje="Ya le erraste "+ this.contador+" veces";
           break;
       }
-      this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
+      this.MostarMensaje(this.contador+" "+mensaje+". AYUDA : "+this.nuevoJuego.retornarAyuda());
      
 
     }
@@ -82,7 +82,7 @@ export class AdivinaElNumeroComponent implements OnInit {
     setTimeout(function(){ 
       x.className = x.className.replace("show", "");
       modelo.ocultarVerificar=false;
-     }, 3000);
+     }, 4000);
     console.info("objeto",x);
   
    }  

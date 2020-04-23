@@ -1,0 +1,84 @@
+div.container{
+    padding: 0;
+    width: 100%;
+    height: 80%;
+    font-family: "8Bits";
+    color: white;
+    text-align: center;
+}
+
+span.titulo{
+    color: white;
+    font-size: 150%;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;   
+
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+input.resp{
+    width: 40%;
+}
+
+div.numeros{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+input{
+    text-align: center;
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+    font-size: 110%;
+    margin-right: 2%;
+    width: 27%;
+    height: 6vh;
+}
+
+input:focus{
+    transform: scale(1.1);
+    border: dashed 5px red;
+}
+
+input::placeholder{
+    font-size: 80%;
+}
+
+div.spans > span{
+    margin-right: 4%;
+}
+
+button{
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+    font-size: 110%;
+    cursor: pointer;
+    width: fit-content;
+    padding: 5px;
+}
+
+button:hover{
+    transform: scale(1.1);
+    border: dashed 5px blue;
+}
+
+i.spiner{
+    margin-right: 2%;
+}
+
+div.esperando{
+    width: 40%;
+}

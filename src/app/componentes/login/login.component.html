@@ -41,24 +41,32 @@
     </div>
     <form [formGroup]="myForm" (ngSubmit)=saveData()>
       <div class="avatar">
-        <img class="avatar" src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/128/Retro-Mushroom-Super-3-icon.png"/>
+        <div class="error" hidden id="errorUser">Usuario o contrasena invalidos</div>
+        <img class="avatar" id="avatar" src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/128/Retro-Mushroom-Super-3-icon.png"/>
       </div>
       <div class="usuario"> 
           <label class="usuario " for="usuario">Usuario </label>
-          <input class="usuario"  [(ngModel)]="usuario" type="text" id="usuario">
+          <input class="usuario" formControlName="email"  name="email" type="text" id="usuario">
       </div>
       <div class="pass">
         <label class="pass" for="pass">Contrasena</label>
-        <input class="pass" [(ngModel)]="clave" type="password" id="pass">
+        <input class="pass" formControlName="password" type="password" name="password" id="pass">
       </div>
+      <div *ngIf="logeando">
       <div class="submit">
-        <button class="submit " type="submit">Ingresar</button>
+        <button class="submit "  type="submit">Ingresar</button>
         <button class="registrarse" routerLink="/Registro" type="button">Registrar</button>
       </div>
       <div class="recordar">
         <input class="recordar" type="checkbox" id="recordar">
         <label class="recordar" for="recordar">Recordar mis datos</label>
-      </div>      
+      </div>   
+    </div>   
+      <div *ngIf="!logeando" class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho" >
+          {{progresoMensaje}} - {{progreso}}%
+        </div>
+    </div>
     </form>
 
   </div>

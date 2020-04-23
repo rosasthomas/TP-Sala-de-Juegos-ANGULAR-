@@ -281,3 +281,21 @@ div.recordar:hover, div.atras:hover{
     transform: scale(1.1);
 }
 
+.progress{
+    margin-left: 2%;
+    margin-top: 10%;
+    width: 95%;
+}
+
+div.error{
+    border: dashed 5px red;
+    text-align: center;
+    font-size: 80%;
+    position: relative;
+    top: 41%;
+    left: 16%;
+    width: 68%;
+    height: 32%;
+    background-color: #f52c2cb5;
+}
+

@@ -2,37 +2,35 @@
 <!--app-menu></app-menu-->
 <!-- index.html -->
 
-
+<div class="container">
+  <span class="titulo"> Agilidad aritmetica</span>
 <form name="juego">
-<ul>
-   <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  
-  </li>
-  <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
+  <div class="numeros">
+   <div class="spans">
+   <span>Primer numero: </span>
+   <span>Operador: </span>
+   <span>Segundo numero: </span>
+  </div>
+    <div>
+      <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" readonly/>
+      <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" readonly/>  
+      <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" readonly/>
+    </div>
+  </div>
+  <div>
+    <span>Respuesta: </span><input class="resp" [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" />
+   </div>
+  <div>
+    <span [hidden]="ocultarVerificar" ><button (click)="verificar()" >Verificar {{Tiempo}} </button></span>
+  </div>
+  <div>
+    <span [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()">Nuevo</button></span>
+  </div>
+  <div class="esperando">
+    <span><p><i  class="fa fa-spinner fa-spin spiner"></i>Esperando numero...</p></span>
 
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>
-
+    <span [hidden]="!nuevoJuego.gano">usted adivino el numero</span>
+    <span [hidden]="nuevoJuego.gano">usted aun no gano </span>
+  </div>
 </form>
+</div>

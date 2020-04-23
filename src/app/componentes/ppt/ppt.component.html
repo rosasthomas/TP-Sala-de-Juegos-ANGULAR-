@@ -1,0 +1,20 @@
+<div class="container">
+    <div><span class="titulo">Piedra, Papel o Tijera</span></div>
+    <div class="subtitle"  id="subtitulo" ><span>Elija uno</span></div>
+    <div class="eleccion"  id="elegir">
+        <div class="piedra" (click)="eleccion('piedra')"><img src="../../../assets/icons/icons8-hand-rock-100.png"><label class="ppt">Piedra</label></div>
+        <div class="papel" (click)="eleccion('papel')"><img src="../../../assets/icons/icons8-hand-100.png"><label class="ppt">Papel</label></div>
+        <div class="tijera" (click)="eleccion('tijera')"><img src="../../../assets/icons/icons8-hand-scissors-100.png"><label class="ppt"> Tijera</label></div>  
+    </div>
+    <div class="vs" id="versus" hidden>
+        <div class="vos"><p>Vos</p><img id="fotoVos"></div>
+        <div><span class="vs">VS.</span></div>
+        <div class="cpu"><p>CPU</p><img hidden id="foto">
+            <div id="spin" class="spinnerContainer"><div class="spinner">
+                <div></div>
+                </div></div></div>
+    </div>
+    <div class="ganaste" id="win" hidden><span class="resul">Ganaste</span></div>
+    <div class="empataste" id="draw" hidden><span class="resul">Empataste</span></div>
+    <div class="perdiste" id="loss" hidden><span class="resul">Perdiste</span></div>
+</div>

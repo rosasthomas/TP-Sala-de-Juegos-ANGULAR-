@@ -53,6 +53,14 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
+import { CompletaPalabraComponent } from './componentes/completa-palabra/completa-palabra.component';
+import { PPTComponent } from './componentes/ppt/ppt.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from 'angularfire2/firestore'
+import { AngularFireAuthModule } from 'angularfire2/auth'
+
 
 @NgModule({
   declarations: [
@@ -78,9 +86,13 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    CompletaPalabraComponent,
+    PPTComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+       AngularFirestoreModule, AngularFireAuthModule,
     BrowserModule,
     FormsModule,
     RuteandoModule,

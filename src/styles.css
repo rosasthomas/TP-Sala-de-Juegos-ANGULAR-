@@ -3,3 +3,12 @@
     font-family: "8Bits";
     src: url("./assets/fonts/8-BITWONDER.TTF");
 }
+
+@font-face{
+    font-family: "alarma";
+    src: url("./assets/fonts/alarm clock.ttf");
+}
+
+*{
+    outline: none;
+}
