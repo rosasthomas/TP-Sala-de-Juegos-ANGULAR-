@@ -104,6 +104,7 @@ span.ingreso, span.registro{
     margin: 4px;
     color: white;
     font-family: '8Bits';
+    font-size: 10px;
 }
 
 .banner {
