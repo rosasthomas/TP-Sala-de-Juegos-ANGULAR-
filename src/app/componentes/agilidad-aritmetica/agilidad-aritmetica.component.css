@@ -9,7 +9,7 @@ div.container{
 
 span.titulo{
     color: white;
-    font-size: 150%;
+    font-size: 140%;
 }
 
 form{
@@ -29,11 +29,6 @@ input.resp{
     width: 40%;
 }
 
-div.numeros{
-    display: flex;
-    flex-flow: column wrap;
-}
-
 input{
     text-align: center;
     color: white;
@@ -51,12 +46,9 @@ input:focus{
     border: dashed 5px red;
 }
 
-input::placeholder{
-    font-size: 80%;
-}
-
-div.spans > span{
-    margin-right: 4%;
+input:hover{
+    transform: scale(1.1);
+    border: dashed 5px red;
 }
 
 button{
@@ -81,4 +73,51 @@ i.spiner{
 
 div.esperando{
     width: 40%;
+}
+
+div.cuenta {
+    border: dashed 5px #f22bff;
+    width: 45%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+label.operador {
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+input.resp::placeholder{
+    font-size: 0.7em;
+}
+
+div.gano {
+    background: #32cd32d4;
+    border: dashed 5px white;
+    width: 40%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+div#perdio {
+    background: #ff0000d6;
+    border: dashed 5px white;
+    width: 40%;
+    height: 15%;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

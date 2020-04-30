@@ -32,6 +32,7 @@ export class CompletaPalabraComponent implements OnInit {
    empezar(){
      $("#empezar").attr("hidden", "true");
      $("#pal, #contador, #ingreso").removeAttr('hidden');
+     $("#ingreso").focus(true)
     let pal;
      do{
       pal = this.getRandomInt(0, this.palabras.length);

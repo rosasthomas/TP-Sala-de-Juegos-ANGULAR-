@@ -1,0 +1,91 @@
+*{
+    font-family: "8Bits";
+}
+
+div.container{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+span.titulo{
+    font-size: 150%;
+}
+
+.tateti {
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    height: 33.3%;
+    &.dos{
+        border-top: dashed 5px white;
+        border-bottom: dashed 5px white
+    }
+}
+
+.column {
+    flex: 33.3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    &.dos{
+        border-right: dashed 5px white;
+        border-left: dashed 5px white
+    }
+}
+
+.mensajes {
+    background: grey;
+    border: dashed 5px white;
+    width: 40%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gano{
+    background-color: limegreen;
+}
+
+.perdio{
+    background-color: rgb(255, 27, 27);
+}
+
+.disabled{
+    pointer-events: none;
+}
+
+div.column:hover{
+    cursor: pointer;
+    border: dashed 5px blue;
+}
+
+.jugador{
+    pointer-events: none;
+    cursor: not-allowed;
+    color: tomato;
+}
+
+.maquina{
+    pointer-events: none;
+    cursor: not-allowed;
+    color: violet;
+}
+
+.termino{
+    pointer-events: none;
+    background-color: #000000eb;
+}

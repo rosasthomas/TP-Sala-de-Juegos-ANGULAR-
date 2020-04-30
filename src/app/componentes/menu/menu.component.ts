@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
       case 'card':
         let ruta = this.router.routerState.snapshot.url;
         if (ruta == '/Juegos') {
-          this.router.navigate(['/'])
+          this.router.navigate(['/Principal'])
         }
         else{
           this.router.navigate(['/Juegos']);

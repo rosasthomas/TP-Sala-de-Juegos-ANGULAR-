@@ -5,32 +5,23 @@
 <div class="container">
   <span class="titulo"> Agilidad aritmetica</span>
 <form name="juego">
-  <div class="numeros">
-   <div class="spans">
-   <span>Primer numero: </span>
-   <span>Operador: </span>
-   <span>Segundo numero: </span>
-  </div>
-    <div>
-      <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" readonly/>
-      <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" readonly/>  
-      <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" readonly/>
+    <div class="cuenta">
+      <label class="numero" id="uno">_</label>
+      <label class="operador" id="op">_</label>
+      <label class="numero" id="dos">_</label>
     </div>
-  </div>
   <div>
-    <span>Respuesta: </span><input class="resp" [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" />
+    <span>Respuesta: </span><input class="resp" [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese respuesta" maxlength="10" id="respuesta" name="numeroIngresado" type="number" autocomplete="off" />
    </div>
   <div>
-    <span [hidden]="ocultarVerificar" ><button (click)="verificar()" >Verificar {{Tiempo}} </button></span>
-  </div>
-  <div>
+    <span [hidden]="ocultarVerificar" ><button disabled >Verificar {{Tiempo}} </button></span>
     <span [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()">Nuevo</button></span>
   </div>
-  <div class="esperando">
-    <span><p><i  class="fa fa-spinner fa-spin spiner"></i>Esperando numero...</p></span>
-
-    <span [hidden]="!nuevoJuego.gano">usted adivino el numero</span>
-    <span [hidden]="nuevoJuego.gano">usted aun no gano </span>
+  <div class="error" hidden id="perdio">
+     <span>Usted ha perdido</span>
   </div>
+  <div class="gano" id="gano" hidden>
+    <span>Felicitaciones gano</span> 
+ </div>
 </form>
-</div>
+</div> 

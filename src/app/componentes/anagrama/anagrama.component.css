@@ -1,0 +1,98 @@
+*{
+    font-family: "8Bits";
+}
+
+div.container{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+span.titulo{
+    color: white;
+    font-size: 150%;
+}
+
+button{
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+    font-size: 110%;
+    cursor: pointer;
+    width: fit-content;
+    padding: 5px;
+}
+
+button:hover{
+    transform: scale(1.1);
+    border: dashed 5px blue;
+}
+
+span.palabra{
+    color: white;
+    font-size: 180%;
+}
+
+div.palabra{
+    border: dashed 5px #f22bff;
+    height: 19%;
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    text-align: center;
+    color: white;
+    outline: none;
+    background-color:transparent;
+    border: dashed 5px white;
+    font-size: 110%;
+    margin-right: 2%;
+    width: 45%;
+    height: 100%;
+}
+
+input:focus{
+    transform: scale(1.1);
+    border: dashed 5px red;
+}
+
+div.ingreso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input::placeholder{
+    font-size: 80%;
+}
+
+div.cuenta{
+    border:  dashed 5px white;
+    background-color: rgb(95, 0, 0);
+    width: 9%;
+    text-align: center;
+}
+
+span.cuenta{
+    font-family: "alarma";
+    font-size: 35px;
+    color: rgb(255, 0, 0);
+}
+
+div.errorCom{
+    color: white;
+    background-color: rgba(253, 17, 17, 0.612);
+    border: dashed 3px rgb(255, 25, 25);
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}

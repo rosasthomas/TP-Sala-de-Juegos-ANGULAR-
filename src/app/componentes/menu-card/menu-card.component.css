@@ -18,11 +18,12 @@ div.contenedor{
     align-items: center;
     font-family: "8Bits";
     color: black;
+    margin-top: 2%;
 }
 
 div.primero{
-  width: 24%;
-  height: 90%;
+  width: 30%;
+  height: 23vh;
   margin: 2%;
   border-radius: 5%;
   text-align: center;
@@ -35,28 +36,19 @@ label{
 }
 
 div.segundo{
-  width: 24%;
-  height: 90%;
+  width: 30%;
+  height: 23vh;
   background: rgba(87, 54, 255, 0.87); 
   text-align: center;
   margin: 2%;
   border-radius: 5%;
 }
 div.tercero{
-  width: 24%;
-  height: 90%;
+  width: 30%;
+  height: 23vh;
   border-radius: 5%;
   text-align: center;
   background:rgba(253, 53, 53, 0.87); 
-  margin: 2%;
-}
-
-div.cuarto{
-  width: 24%;
-  height: 90%;
-  background: rgba(87, 54, 255, 0.87); 
-  text-align: center;
-  border-radius: 5%;
   margin: 2%;
 }
 
@@ -66,4 +58,14 @@ div.primero:hover, div.segundo:hover, div.tercero:hover, div.cuarto:hover{
 }
 label:hover{
   cursor: pointer;
+}
+
+div.menus{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+img.tateti{
+  margin-top: 2%
 }

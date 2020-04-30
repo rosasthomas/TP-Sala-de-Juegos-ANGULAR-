@@ -59,7 +59,8 @@ import { PPTComponent } from './componentes/ppt/ppt.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore'
-import { AngularFireAuthModule } from 'angularfire2/auth'
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { TatetiComponent } from './componentes/tateti/tateti.component'
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth'
     InputJugadoresComponent,
     SexoPipe,
     CompletaPalabraComponent,
-    PPTComponent
+    PPTComponent,
+    TatetiComponent
   ],
   imports: [
     AngularFireModule.initializeApp({

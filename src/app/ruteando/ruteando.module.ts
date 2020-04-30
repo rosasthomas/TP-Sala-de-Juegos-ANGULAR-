@@ -24,6 +24,8 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { CompletaPalabraComponent } from '../componentes/completa-palabra/completa-palabra.component';
 import { JuegoPiedraPapelTijera } from '../clases/juego-piedra-papel-tijera';
 import { PPTComponent } from '../componentes/ppt/ppt.component';
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
+import { TatetiComponent } from '../componentes/tateti/tateti.component';
 
 
 // declaro donde quiero que se dirija
@@ -47,6 +49,8 @@ children:
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
     {path: 'CompletaPalabra', component: CompletaPalabraComponent},
+    {path: 'Anagrama', component:AnagramaComponent},
+    {path: 'Tateti', component:TatetiComponent},
   {path: 'PPT', component: PPTComponent}]
 },
 {path: '**' , component: ErrorComponent},
