@@ -1,29 +1,60 @@
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit ,Input,Output,EventEmitter, OnDestroy} from '@angular/core';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
 import * as $ from 'jquery'
 import {Subscription} from "rxjs";
 import { timer } from "rxjs";
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
   styleUrls: ['./agilidad-aritmetica.component.css']
 })
-export class AgilidadAritmeticaComponent implements OnInit {
+export class AgilidadAritmeticaComponent implements OnInit, OnDestroy {
    @Output() 
   enviarJuego :EventEmitter<any>= new EventEmitter<any>();
   nuevoJuego : JuegoAgilidad;
   ocultarVerificar: boolean;
   Tiempo: number;
   repetidor:any;
+  jugador 
+  listadoJugadores
+  usuarioLogueado
+
   private subscription: Subscription;
   ngOnInit() {
   }
-   constructor() {
+  ngOnDestroy():void{
+    this.servicio.update('aritmetica', this.jugador)
+  }
+
+   constructor(private servicio: JuegoServiceService) {
      this.ocultarVerificar=true;
      this.Tiempo=5; 
     this.nuevoJuego = new JuegoAgilidad();
     console.info("Inicio agilidad");
+
+    this.usuarioLogueado = localStorage.getItem('usuario')
+    servicio.traerDB('aritmetica').subscribe(datos => {
+      this.listadoJugadores = datos
+      let flag = false;
+      for (let usuario of this.listadoJugadores) {
+        if(usuario.nombre == this.usuarioLogueado){
+          this.jugador = usuario
+          flag = true
+          break;
+        }
+      }
+      if(!flag){
+        servicio.crearDoc('aritmetica', this.usuarioLogueado, 'Aritmetica')
+        this.jugador = {
+          gano: 0,
+          perdio: 0,
+          nombre: this.usuarioLogueado,
+          juego: 'Aritmetica'
+        }
+      }
+    }, error => console.log(error))
   }
 
   getRandomInt(min, max) {
@@ -88,9 +119,11 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.ocultarVerificar=false;
     let respuesta = $("#respuesta").val()
     if(respuesta == value){
+      this.jugador.gano++
       $("#gano").removeAttr('hidden')
     }
     else{
+      this.jugador.perdio++
       $("#perdio").removeAttr('hidden')
     }
   }

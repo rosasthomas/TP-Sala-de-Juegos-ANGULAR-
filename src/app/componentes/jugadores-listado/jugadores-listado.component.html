@@ -35,12 +35,8 @@
       <div class="back">
         <img class="back" src="../../../assets/icons/back-white-60x60.png" routerLink="/Principal">
       </div>
-      <div class="botones">
-        <ul class="botones">
-          <li class="botoncitos"><button type="button" (click)="TraerTodos()">Todos los jugadores</button></li>
-          <li class="botoncitos"><button type="button" (click)="TraerGanadores()">Los ganadores</button></li>
-          <li class="botoncitos"><button type="button" (click)="TraerPerdedores()">Los perdedores</button></li>
-        </ul>
+      <div class="titulo">
+        <p>Listado de Jugadores</p>
       </div>
     </div>
     <div class="tabla">
@@ -48,17 +44,15 @@
         <thead>
           <tr>
             <th>Usuario</th>
-            <th>Cuit</th>
-            <th>Sexo</th>
             <th>Gano</th>
+            <th>Perdio</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let jugador of listado" >
-            <td>{{jugador.usuario}} </td>
-            <td>{{jugador.cuit}} </td> 
-            <td>{{jugador.sexo | sexo| uppercase}} </td> 
+            <td>{{jugador.nombre}} </td>
             <td>{{jugador.gano}} </td> 
+            <td>{{jugador.perdio}} </td> 
             
           </tr>
          

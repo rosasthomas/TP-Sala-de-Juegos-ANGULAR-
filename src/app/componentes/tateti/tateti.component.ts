@@ -1,20 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery'
 import { Router } from '@angular/router';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-tateti',
   templateUrl: './tateti.component.html',
   styleUrls: ['./tateti.component.scss']
 })
-export class TatetiComponent implements OnInit {
+export class TatetiComponent implements OnInit, OnDestroy {
 
   contJugados = 0;
   celdas : number[][] = [[0,0,0],[0,0,0],[0,0,0]];
-
-  constructor(private route:Router) { }
+  jugador 
+  listadoJugadores
+  usuarioLogueado
+  constructor(private route:Router, private servicio: JuegoServiceService) { 
+    this.usuarioLogueado = localStorage.getItem('usuario')
+    servicio.traerDB('tateti').subscribe(datos => {
+      this.listadoJugadores = datos
+      let flag = false;
+      for (let usuario of this.listadoJugadores) {
+        if(usuario.nombre == this.usuarioLogueado){
+          this.jugador = usuario
+          flag = true
+          break;
+        }
+      }
+      if(!flag){
+        servicio.crearDoc('tateti', this.usuarioLogueado, 'Ta Te Ti')
+        this.jugador = {
+          gano: 0,
+          perdio: 0,
+          nombre: this.usuarioLogueado,
+          juego: 'Ta Te Ti'
+        }
+      }
+    }, error => console.log(error))
+  }
 
   ngOnInit(): void {
+
+  }
+
+  ngOnDestroy():void{
+    this.servicio.update('tateti', this.jugador)
   }
 
   seleccionarMaquina()
@@ -63,6 +93,7 @@ export class TatetiComponent implements OnInit {
 
   mensajes(value:string){
     if(value == 'gano'){
+      this.jugador.gano++
       $("#tateti").addClass('termino')
       $("#msj").addClass('gano')
       $("#spmsj").text('Muy bien ganaste!')
@@ -73,6 +104,7 @@ export class TatetiComponent implements OnInit {
       }, 3000);
     }
     else if(value == 'perdio'){
+      this.jugador.perdio++
       $("#tateti").addClass('termino')
       $("#msj").addClass('perdio')
       $("#spmsj").text('Suerte la proxima')

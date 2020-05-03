@@ -1,5 +1,6 @@
 
 import { Component, OnInit , Input, EventEmitter} from '@angular/core';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-listado-de-resultados',
@@ -7,11 +8,41 @@ import { Component, OnInit , Input, EventEmitter} from '@angular/core';
   styleUrls: ['./listado-de-resultados.component.css']
 })
 export class ListadoDeResultadosComponent implements OnInit {
- @Input()
- listado: Array<any>;
+ listado:Array<any>=[];
 
 
-  constructor() {
+  constructor(private servicio:JuegoServiceService) {
+    servicio.traerDB('tateti').subscribe((datos) => {
+      for (let jugador of datos) {
+        this.listado.push(jugador)
+      }
+    });
+    servicio.traerDB('anagrama').subscribe((datos) => {
+      for (let jugador of datos) {
+        this.listado.push(jugador)
+      }
+    });
+    servicio.traerDB('ppt').subscribe((datos) => {
+      for (let jugador of datos) {
+        this.listado.push(jugador)
+      }
+    });
+    servicio.traerDB('adivinaNumero').subscribe((datos) => {
+      for (let jugador of datos) {
+        this.listado.push(jugador)
+      }
+    });
+    servicio.traerDB('completaPalabra').subscribe((datos) => {
+      for (let jugador of datos) {
+        this.listado.push(jugador)
+      }
+    });
+    servicio.traerDB('aritmetica').subscribe((datos) => {
+      for (let jugador of datos) {
+        this.listado.push(jugador)
+      }
+    });
+    
    }
 
   ngOnInit() {
@@ -19,7 +50,7 @@ export class ListadoDeResultadosComponent implements OnInit {
   }
 
   ver() {
-    console.info(this.listado);
+    
   }
 
 }

@@ -1,14 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-completa-palabra',
   templateUrl: './completa-palabra.component.html',
   styleUrls: ['./completa-palabra.component.css']
 })
-export class CompletaPalabraComponent implements OnInit {
+export class CompletaPalabraComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  jugador 
+  listadoJugadores
+  usuarioLogueado
+  constructor(private servicio: JuegoServiceService) { 
+    this.usuarioLogueado = localStorage.getItem('usuario')
+    servicio.traerDB('completaPalabra').subscribe(datos => {
+      this.listadoJugadores = datos
+      let flag = false;
+      for (let usuario of this.listadoJugadores) {
+        if(usuario.nombre == this.usuarioLogueado){
+          this.jugador = usuario
+          flag = true
+          break;
+        }
+      }
+      if(!flag){
+        servicio.crearDoc('completaPalabra', this.usuarioLogueado, 'Completa la palabra')
+        this.jugador = {
+          gano: 0,
+          perdio: 0,
+          nombre: this.usuarioLogueado,
+          juego: 'Completa la palabra'
+        }
+      }
+    }, error => console.log(error))
+  }
+
+  ngOnDestroy():void{
+    this.servicio.update('completaPalabra', this.jugador)
+  }
+
 
   ngOnInit(): void {
     this.index = null;
@@ -32,7 +63,7 @@ export class CompletaPalabraComponent implements OnInit {
    empezar(){
      $("#empezar").attr("hidden", "true");
      $("#pal, #contador, #ingreso").removeAttr('hidden');
-     $("#ingreso").focus(true)
+     $("#completa").focus()
     let pal;
      do{
       pal = this.getRandomInt(0, this.palabras.length);
@@ -51,14 +82,15 @@ export class CompletaPalabraComponent implements OnInit {
     $("#errorCom").attr('hidden', 'true');
      let letra = $("#completa").val();
      if(letra == this.letraCorrecta){
+       this.jugador.gano++
        this.letraCorrecta = null;
        this.contador++;
-       console.log(this.contador)
        $("#cont").text(this.contador);
        $("#completa").val('');
        this.empezar();
      }
      else{
+       this.jugador.perdio++
        $("#errorCom").removeAttr('hidden');
      }
    }

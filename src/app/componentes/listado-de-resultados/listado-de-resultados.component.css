@@ -6,13 +6,19 @@ div.tabla{
     display: flex;
     justify-content: center;
     font-size: 120%;
+    overflow:auto;
 }
 
 table.tablita{
-    border: dashed 5px white;
     height: 100%;
     width: 95%;
 }
+
+th{
+    border: dashed 4px red;
+}
+
+
 
 tr:hover{
     border: dashed 5px blue;

@@ -37,6 +37,7 @@ export class RegistroComponent implements OnInit {
     let secPass = $("#secPass").val()
     if(this.item.clave == secPass){
       this.usuarios.add(this.item)
+      localStorage.setItem('usuario', this.item.nombre)
       this.route.navigate(['/Principal'])
     }
     else{

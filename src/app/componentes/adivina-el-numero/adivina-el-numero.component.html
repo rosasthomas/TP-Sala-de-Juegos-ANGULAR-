@@ -33,7 +33,7 @@
   <form name="juego">
     <div>
     <label>Ingrese un numero:  </label>  
-    <input [(ngModel)]="nuevoJuego.numeroIngresado" name="numeroIngresado" type="text" class="form-control"/>  
+    <input [(ngModel)]="nuevoJuego.numeroIngresado" autocomplete="off" maxlength="4" minlength="1" spellcheck="false" name="numeroIngresado" type="text" class="form-control"/>  
   </div>
   <button [hidden]="ocultarVerificar" *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" >Verificar</button>
   <button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()">Nuevo numero secreto</button>

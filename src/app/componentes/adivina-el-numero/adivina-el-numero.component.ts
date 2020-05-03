@@ -1,25 +1,56 @@
 
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit ,Input,Output,EventEmitter, OnDestroy} from '@angular/core';
 import { JuegoAdivina } from '../../clases/juego-adivina'
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-adivina-el-numero',
   templateUrl: './adivina-el-numero.component.html',
   styleUrls: ['./adivina-el-numero.component.css']
 })
-export class AdivinaElNumeroComponent implements OnInit {
+export class AdivinaElNumeroComponent implements OnInit, OnDestroy {
  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
 
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
   contador:number;
   ocultarVerificar:boolean;
- 
-  constructor() { 
+  jugador 
+  listadoJugadores
+  usuarioLogueado
+
+  constructor(private servicio: JuegoServiceService) { 
     this.nuevoJuego = new JuegoAdivina();
     console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
     this.ocultarVerificar=false;
+
+    this.usuarioLogueado = localStorage.getItem('usuario')
+    servicio.traerDB('adivinaNumero').subscribe(datos => {
+      this.listadoJugadores = datos
+      let flag = false;
+      for (let usuario of this.listadoJugadores) {
+        if(usuario.nombre == this.usuarioLogueado){
+          this.jugador = usuario
+          flag = true
+          break;
+        }
+      }
+      if(!flag){
+        servicio.crearDoc('adivinaNumero', this.usuarioLogueado, 'Adivina el numero')
+        this.jugador = {
+          gano: 0,
+          perdio: 0,
+          nombre: this.usuarioLogueado,
+          juego: 'Adivina el numero'
+        }
+      }
+    }, error => console.log(error))
   }
+
+  ngOnDestroy():void{
+    this.servicio.update('adivinaNumero', this.jugador)
+  }
+
   generarnumero() {
     this.nuevoJuego.generarnumero();
     this.contador=0;
@@ -74,8 +105,10 @@ export class AdivinaElNumeroComponent implements OnInit {
     var x = document.getElementById("snackbar");
     if(ganador)
       {
+        this.jugador.gano++
         x.className = "show Ganador";
       }else{
+        this.jugador.perdio++
         x.className = "show Perdedor";
       }
     var modelo=this;

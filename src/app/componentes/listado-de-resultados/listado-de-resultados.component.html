@@ -5,22 +5,24 @@
 
 </div-->
 <div class="tabla">
-<table class="tablita">
-    <thead>
-      <tr>
-        <th>Juego</th>
-        <th>Jugador</th>
-        <th>Resultado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let juego of listado">
-        <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
-      </tr>
-     
-    </tbody>
-  </table>
+    <table class="tablita">
+      <thead>
+        <tr>
+          <th>Juego</th>
+          <th>Jugador</th>
+          <th>Gano</th>
+          <th>Perdio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let jugador of listado">
+          <td>{{jugador.juego}} </td>
+          <td>{{jugador.nombre}} </td> 
+          <td >{{jugador.gano}} </td>   
+          <td>{{jugador.perdio}}</td>     
+        </tr>
+       
+      </tbody>
+    </table>
+
 </div>

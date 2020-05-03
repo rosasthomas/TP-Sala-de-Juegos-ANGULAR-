@@ -1,17 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery'
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-ppt',
   templateUrl: './ppt.component.html',
   styleUrls: ['./ppt.component.css']
 })
-export class PPTComponent implements OnInit {
+export class PPTComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  jugador 
+  listadoJugadores
+  usuarioLogueado
+  constructor(private servicio: JuegoServiceService) { 
+    this.usuarioLogueado = localStorage.getItem('usuario')
+    servicio.traerDB('ppt').subscribe(datos => {
+      this.listadoJugadores = datos
+      let flag = false;
+      for (let usuario of this.listadoJugadores) {
+        if(usuario.nombre == this.usuarioLogueado){
+          this.jugador = usuario
+          flag = true
+          break;
+        }
+      }
+      if(!flag){
+        servicio.crearDoc('ppt', this.usuarioLogueado, 'PPT')
+        this.jugador = {
+          gano: 0,
+          perdio: 0,
+          nombre: this.usuarioLogueado,
+          juego: 'PPT'
+        }
+      }
+    }, error => console.log(error))
+  }
 
   ngOnInit(): void {
+
   }
+
+  ngOnDestroy():void{
+    this.servicio.update('ppt', this.jugador)
+  }
+
 
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -72,9 +104,11 @@ export class PPTComponent implements OnInit {
       $("#spin").attr("hidden", true);
       $("#foto").removeAttr('hidden');
       if(resul == 'ganaste'){
+        this.jugador.gano++
         $("#win").removeAttr('hidden');
       }
       else if(resul == 'perdiste'){
+        this.jugador.perdio++
         $("#loss").removeAttr('hidden');
       }
       else if(resul == 'empate'){

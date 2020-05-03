@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
     for (let usuario of this.lista){
       if(usuario.nombre == this.usuario && usuario.clave == this.clave){
         flag=true;
+        localStorage.setItem('usuario', usuario.nombre)
         this.router.navigate(['/Principal'])
         break;
       }

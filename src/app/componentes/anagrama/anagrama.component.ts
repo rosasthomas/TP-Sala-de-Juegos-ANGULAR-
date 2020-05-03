@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery'
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-anagrama',
   templateUrl: './anagrama.component.html',
   styleUrls: ['./anagrama.component.css']
 })
-export class AnagramaComponent implements OnInit {
+export class AnagramaComponent implements OnInit, OnDestroy {
 
   listaPalabras:string[] = ['habian','usted','estados','hizo','nadie','paises','horas','posible','tarde','ley','importante',       
                        'guerra','desarrollo','proceso','realidad','sentido','lado','cambio','mano','eran','estar','numero',
@@ -18,10 +19,39 @@ export class AnagramaComponent implements OnInit {
                        'familia','largo','partir','falta','llegar','propio'];
   palabraCorrecta:string
   contador = 0
+  jugador 
+  listadoJugadores
+  usuarioLogueado
 
-  constructor() { }
+  constructor(private servicio: JuegoServiceService) {
+    this.usuarioLogueado = localStorage.getItem('usuario')
+    servicio.traerDB('anagrama').subscribe(datos => {
+      this.listadoJugadores = datos
+      let flag = false;
+      for (let usuario of this.listadoJugadores) {
+        if(usuario.nombre == this.usuarioLogueado){
+          this.jugador = usuario
+          flag = true
+          break;
+        }
+      }
+      if(!flag){console.log('asd')
+        servicio.crearDoc('anagrama', this.usuarioLogueado, 'Anagrama')
+        this.jugador = {
+          gano: 0,
+          perdio: 0,
+          nombre: this.usuarioLogueado,
+          juego: 'Anagrama'
+        }
+      }
+    }, error => console.log(error))
+   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy():void{
+    this.servicio.update('anagrama', this.jugador)
   }
 
   getRandomInt(min, max) {
@@ -54,6 +84,7 @@ export class AnagramaComponent implements OnInit {
     $("#errorCom").attr('hidden', 'true');
      let letra = $("#completa").val();
      if(letra == this.palabraCorrecta ){
+       this.jugador.gano++
        this.palabraCorrecta  = null;
        this.contador++;
        $("#cont").text(this.contador);
@@ -61,6 +92,7 @@ export class AnagramaComponent implements OnInit {
        this.empezar();
      }
      else{
+       this.jugador.perdio++
        $("#errorCom").removeAttr('hidden');
      }
    }
